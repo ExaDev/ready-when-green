@@ -1,0 +1,41 @@
+name: Ready when green
+description: Mark labelled draft pull requests ready for review once a required check passes, so a merge workflow can take them on.
+author: ExaDev
+branding:
+  icon: eye
+  color: green
+
+inputs:
+  required-check:
+    description: Name of the check run that must have succeeded on the pull request's head commit. Point it at one aggregate job that needs every other job.
+    required: true
+  label:
+    description: Label that opts a pull request in.
+    default: automerge
+  merge-token:
+    description: An API token that marks the pull request ready, a personal access token or a GitHub App installation token. Not GITHUB_TOKEN, which starts no ready_for_review workflows.
+  app-id:
+    description: A GitHub App's id, as an alternative to merge-token; an installation token is minted for this repository.
+  app-private-key:
+    description: The private key of the GitHub App named by app-id.
+  read-token:
+    description: Token used to read pull requests and checks.
+    default: ${{ github.token }}
+  head-sha:
+    description: Commit to act on. Defaults to the head of the workflow_run or pull_request_target event.
+    default: ${{ github.event.workflow_run.head_sha || github.event.pull_request.head.sha }}
+
+runs:
+  using: composite
+  steps:
+    - uses: ExaDev/merge-when@v1
+      with:
+        then: ready
+        when: |
+          label: ${{ inputs.label }}
+          check: ${{ inputs.required-check }}
+        merge-token: ${{ inputs.merge-token }}
+        app-id: ${{ inputs.app-id }}
+        app-private-key: ${{ inputs.app-private-key }}
+        read-token: ${{ inputs.read-token }}
+        head-sha: ${{ inputs.head-sha }}
