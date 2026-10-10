@@ -72,6 +72,8 @@ Marking a pull request ready is not pinned to a commit the way the merge is, so 
 
 ## Development
 
+Open pull requests here as labelled drafts: every one then exercises the pair end to end, since it is only merged if this action marks it ready with the app token and the `ready_for_review` event that causes starts the merge.
+
 This repository readies its own labelled drafts with the action (`.github/workflows/ready-when-green.yml`) and merges them with `merge-when-green` beside it (`.github/workflows/merge-when-green.yml`), both with the organisation's GitHub App. The work itself is done by `merge-when`, which holds the script and its tests; `npm test` here runs the unit tests for the release plugins. CI also runs the composite action from the checkout, and commitlint, actionlint, typecheck, lint and format checks, aggregated into one `Required Checks` job.
 
 Releases are made by semantic-release from conventional commits on `main`: it tags the version, publishes the GitHub Release, updates `CHANGELOG.md` and moves the major tag (`v1`) that consumers pin to.
