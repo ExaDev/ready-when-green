@@ -1,3 +1,5 @@
+## [1.0.1](https://github.com/ExaDev/ready-when-green/compare/v1.0.0...v1.0.1) (2026-10-10)
+
 ## 1.0.0 (2026-10-10)
 
 ### Features
