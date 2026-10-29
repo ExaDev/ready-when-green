@@ -1,5 +1,7 @@
 # ready-when-green
 
+[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/ExaDev/ready-when-green) [![Release](https://img.shields.io/github/v/release/ExaDev/ready-when-green)](https://github.com/ExaDev/ready-when-green/releases/latest) [![CI](https://img.shields.io/github/actions/workflow/status/ExaDev/ready-when-green/ci.yml?branch=main)](https://github.com/ExaDev/ready-when-green/actions)
+
 Marks a labelled draft pull request ready for review once a named check has passed on its head commit. It is [`merge-when`](https://github.com/ExaDev/merge-when) with `then: ready` and the conditions fixed to "labelled and the named check green"; use `merge-when` directly to choose other conditions.
 
 ## When to use this
