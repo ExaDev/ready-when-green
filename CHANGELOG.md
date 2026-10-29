@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/ExaDev/ready-when-green/compare/v1.0.2...v1.0.3) (2026-10-29)
+
+### Documentation
+
+- add the standard badge row to the README ([e21dd66](https://github.com/ExaDev/ready-when-green/commit/e21dd666046245fe36b682e3fffe7c9a3b7ddb03))
+
 ## [1.0.2](https://github.com/ExaDev/ready-when-green/compare/v1.0.1...v1.0.2) (2026-10-29)
 
 ### Bug Fixes
